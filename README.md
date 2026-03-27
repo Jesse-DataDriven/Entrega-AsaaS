@@ -2,7 +2,7 @@
 ### Gerência de Projetos Especialista | PMO Estratégico
 
 <p align="center">
-  <img src="https://i.postimg.cc/3xh3gCJG/Logo2_Sem_fundo.png" width="280">
+  <img src="https://i.postimg.cc/vZyGWLH9/logo3_Sem_fundo.png" width="280">
 </p>
 
 ---
