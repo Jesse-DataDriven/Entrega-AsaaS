@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessé Silva — Case BEES Bank | Candidatura Asaas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --asaas-blue: #0D3B8E;
+    --asaas-blue-mid: #1565C0;
+    --asaas-blue-light: #1E88E5;
+    --asaas-sky: #E3F2FD;
+    --asaas-dark: #0A1628;
+    --asaas-text: #1A1A2E;
+    --asaas-muted: #5A6A7E;
+    --asaas-line: #E0E8F0;
+    --asaas-white: #FFFFFF;
+    --asaas-card: #F7FAFD;
+    --asaas-green: #00C47D;
+    --asaas-green-light: #E8FBF3;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --font-head: 'Sora', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--asaas-white);
+    color: var(--asaas-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--asaas-line);
+    padding: 0 5%;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--font-head);
+    font-weight: 700; font-size: 15px;
+    color: var(--asaas-blue);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-brand span {
+    background: var(--asaas-blue);
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+  }
+  .nav-links {
+    display: flex; gap: 28px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px; font-weight: 500;
+    color: var(--asaas-muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--asaas-blue); }
+  .nav-cta {
+    background: var(--asaas-blue);
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 13px; font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background .2s, transform .1s;
+  }
+  .nav-cta:hover { background: var(--asaas-blue-mid); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, var(--asaas-dark) 0%, #0D2B6E 50%, #0D3B8E 100%);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 70% 30%, rgba(30,136,229,0.15) 0%, transparent 60%),
+                      radial-gradient(circle at 20% 70%, rgba(0,196,125,0.08) 0%, transparent 50%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 1;
+    width: 100%;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px; font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .hero-tag-dot {
+    width: 6px; height: 6px;
+    background: var(--asaas-green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.4); }
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: #60BDFF;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    max-width: 480px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .hero-buttons {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--asaas-green);
+    color: var(--asaas-dark);
+    font-family: var(--font-head);
+    font-weight: 700; font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,196,125,0.4); }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-family: var(--font-head);
+    font-weight: 500; font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+  /* Hero metrics strip */
+  .hero-metrics {
+    display: flex; flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+  .metric-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .metric-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .metric-icon.green { background: rgba(0,196,125,0.2); }
+  .metric-icon.blue  { background: rgba(96,189,255,0.2); }
+  .metric-icon.amber { background: rgba(255,193,7,0.2); }
+  .metric-value {
+    font-family: var(--font-head);
+    font-size: 26px; font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+  .metric-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 80px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: var(--asaas-sky);
+    color: var(--asaas-blue);
+    font-size: 11px; font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 100px;
+    text-transform: uppercase; letter-spacing: .8px;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 800;
+    color: var(--asaas-text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    color: var(--asaas-muted);
+    font-size: 16px;
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  /* ── CONTEXTO / STORYTELLING ── */
+  .context-section { background: var(--asaas-card); }
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .context-timeline {
+    display: flex; flex-direction: column;
+    gap: 0;
+  }
+  .timeline-item {
+    display: flex; gap: 20px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px; top: 44px; bottom: 0;
+    width: 2px;
+    background: var(--asaas-line);
+  }
+  .timeline-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--asaas-blue);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .timeline-dot.green { background: var(--asaas-green); color: var(--asaas-dark); }
+  .timeline-content h4 {
+    font-family: var(--font-head);
+    font-size: 14px; font-weight: 700;
+    color: var(--asaas-text);
+    margin-bottom: 6px;
+  }
+  .timeline-content p { font-size: 14px; color: var(--asaas-muted); line-height: 1.6; }
+  .context-text h2 {
+    font-family: var(--font-head);
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 800;
+    color: var(--asaas-text);
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .context-text h2 strong { color: var(--asaas-blue); }
+  .context-text p {
+    color: var(--asaas-muted);
+    font-size: 15px; line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-section { background: #fff; }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--asaas-white);
+    border: 1px solid var(--asaas-line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(13,59,142,0.12);
+  }
+  .project-header {
+    padding: 24px 24px 0;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px;
+  }
+  .project-number {
+    font-family: var(--font-head);
+    font-size: 12px; font-weight: 700;
+    color: var(--asaas-blue);
+    background: var(--asaas-sky);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .project-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .project-body { padding: 16px 24px 20px; flex: 1; }
+  .project-body h3 {
+    font-family: var(--font-head);
+    font-size: 16px; font-weight: 700;
+    color: var(--asaas-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .project-body p {
+    font-size: 14px;
+    color: var(--asaas-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .project-kpis {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .kpi-badge {
+    background: var(--asaas-card);
+    border: 1px solid var(--asaas-line);
+    color: var(--asaas-blue);
+    font-family: var(--font-head);
+    font-size: 12px; font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .kpi-badge.green { color: #007A4D; background: var(--asaas-green-light); border-color: rgba(0,196,125,.2); }
+  .kpi-badge.amber { color: #7A4D00; background: #FFF8E1; border-color: rgba(255,193,7,.3); }
+  .project-footer {
+    padding: 14px 24px;
+    background: var(--asaas-card);
+    border-top: 1px solid var(--asaas-line);
+    font-size: 12px;
+    color: var(--asaas-muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── FEATURED PROJECT (AB CREDIT) ── */
+  .featured-section { background: var(--asaas-dark); }
+  .featured-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .featured-section .section-tag {
+    background: rgba(0,196,125,.15);
+    color: var(--asaas-green);
+  }
+  .featured-section .section-title { color: #fff; }
+  .featured-section .section-desc { color: rgba(255,255,255,0.55); }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .study-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+  .study-card h4 {
+    font-family: var(--font-head);
+    font-size: 14px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: .6px;
+    margin-bottom: 16px;
+  }
+  .study-stat {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .study-stat .number {
+    font-family: var(--font-head);
+    font-size: 42px; font-weight: 800;
+    color: var(--asaas-green);
+    line-height: 1;
+  }
+  .study-stat .unit {
+    font-family: var(--font-head);
+    font-size: 18px; font-weight: 600;
+    color: rgba(255,255,255,0.7);
+  }
+  .study-stat .desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-top: 4px;
+  }
+  .study-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 20px 0;
+  }
+  .study-list { list-style: none; }
+  .study-list li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    padding: 6px 0;
+    display: flex; align-items: flex-start; gap: 10px;
+    line-height: 1.5;
+  }
+  .study-list li::before {
+    content: '→';
+    color: var(--asaas-green);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .method-steps {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .method-step {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(30,136,229,0.2);
+    border: 1px solid rgba(30,136,229,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 13px; font-weight: 700;
+    color: #60BDFF;
+    flex-shrink: 0;
+  }
+  .step-text h5 {
+    font-family: var(--font-head);
+    font-size: 14px; font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .step-text p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* ── CONSOLIDATED RESULTS ── */
+  .results-section { background: var(--asaas-card); }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .result-card {
+    background: #fff;
+    border: 1px solid var(--asaas-line);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .result-card .value {
+    font-family: var(--font-head);
+    font-size: 34px; font-weight: 800;
+    color: var(--asaas-blue);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-card .value.green { color: var(--asaas-green); }
+  .result-card .label {
+    font-size: 13px;
+    color: var(--asaas-muted);
+    line-height: 1.5;
+  }
+
+  /* ── REPO / LINKS ── */
+  .repo-section { background: #fff; }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .repo-card {
+    border: 1px solid var(--asaas-line);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    display: flex; flex-direction: column;
+  }
+  .repo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(13,59,142,0.1);
+    border-color: var(--asaas-blue-light);
+  }
+  .repo-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .repo-icon.blue  { background: var(--asaas-sky); }
+  .repo-icon.green { background: var(--asaas-green-light); }
+  .repo-icon.amber { background: #FFF8E1; }
+  .repo-card h4 {
+    font-family: var(--font-head);
+    font-size: 16px; font-weight: 700;
+    color: var(--asaas-text);
+    margin-bottom: 8px;
+  }
+  .repo-card p {
+    font-size: 14px;
+    color: var(--asaas-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .repo-link-text {
+    font-family: var(--font-head);
+    font-size: 13px; font-weight: 600;
+    color: var(--asaas-blue);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .repo-link-text::after { content: '→'; }
+
+  /* ── KANBAN SUGGESTIONS ── */
+  .kanban-section { background: var(--asaas-card); }
+  .kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .kanban-column {
+    background: #fff;
+    border: 1px solid var(--asaas-line);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .kanban-col-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .kanban-col-title {
+    font-family: var(--font-head);
+    font-size: 13px; font-weight: 700;
+    color: var(--asaas-text);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .kanban-count {
+    background: var(--asaas-sky);
+    color: var(--asaas-blue);
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+  .kanban-tasks { display: flex; flex-direction: column; gap: 10px; }
+  .kanban-task {
+    background: var(--asaas-card);
+    border: 1px solid var(--asaas-line);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+  }
+  .kanban-task .task-epic {
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .5px;
+    margin-bottom: 5px;
+  }
+  .kanban-task .task-epic.ep1 { color: var(--asaas-blue); }
+  .kanban-task .task-epic.ep2 { color: var(--asaas-green); }
+  .kanban-task .task-epic.ep3 { color: #C67700; }
+  .kanban-task h5 {
+    font-family: var(--font-head);
+    font-size: 13px; font-weight: 600;
+    color: var(--asaas-text);
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--asaas-dark);
+    padding: 48px 5%;
+    text-align: center;
+  }
+  footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--asaas-green); }
+  footer .footer-brand {
+    font-family: var(--font-head);
+    font-size: 18px; font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid, .context-grid, .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .repo-grid, .kanban-board { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 60px 5%; }
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">
+    <span>JS</span>
+    Jessé Silva — PM Expert
+  </div>
+  <ul class="nav-links">
+    <li><a href="#contexto">Contexto</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#credito">Case Crédito</a></li>
+    <li><a href="#resultados">Resultados</a></li>
+    <li><a href="#repositorio">Repositório</a></li>
+  </ul>
+  <a href="https://asaas.gupy.io/jobs/10880439" target="_blank" class="nav-cta">Ver Vaga Asaas ↗</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Case de Sucesso · BEES Bank · 2022–2023
+      </div>
+      <h1>
+        De <em>zero à excelência</em> operacional em uma Fintech B2B
+      </h1>
+      <p class="hero-sub">
+        8 projetos estratégicos gerenciados simultaneamente na operação CXC do BEES Bank — resultando em +R$6MM de saving, recuperação de NPS, troca de adquirência e expansão de crédito com IA.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projetos" class="btn-primary">Ver os 8 Projetos</a>
+        <a href="#repositorio" class="btn-ghost">Acessar Repositório</a>
+      </div>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric-card fade-up">
+        <div class="metric-icon green">💰</div>
+        <div>
+          <div class="metric-value">+R$6MM</div>
+          <div class="metric-label">Saving com eficiência operacional (PA)</div>
+        </div>
+      </div>
+      <div class="metric-card fade-up" style="transition-delay:.1s">
+        <div class="metric-icon blue">📈</div>
+        <div>
+          <div class="metric-value">+21,65%</div>
+          <div class="metric-label">Incremento no ticket médio com Teste A/B de crédito</div>
+        </div>
+      </div>
+      <div class="metric-card fade-up" style="transition-delay:.2s">
+        <div class="metric-icon amber">⭐</div>
+        <div>
+          <div class="metric-value">9,8 / 10</div>
+          <div class="metric-label">NPS Ouvidoria após reestruturação completa</div>
+        </div>
+      </div>
+      <div class="metric-card fade-up" style="transition-delay:.3s">
+        <div class="metric-icon green">🎯</div>
+        <div>
+          <div class="metric-value">1,05%</div>
+          <div class="metric-label">Inadimplência no grupo de crédito ampliado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXTO / STORYTELLING -->
+<section class="context-section" id="contexto">
+  <div class="section-inner">
+    <div class="context-grid">
+      <div class="context-text">
+        <div class="section-tag">O Contexto</div>
+        <h2>A chegada em uma operação <strong>em construção</strong></h2>
+        <p>
+          Em novembro de 2022, assumi a liderança da área de CXC do BEES Bank — a fintech embarcada no ecossistema da Ambev. A operação estava em fase de implantação, sem processos regulatórios, KPIs instáveis e uma experiência de cliente aquém do esperado.
+        </p>
+        <p>
+          O desafio era criar estrutura do zero, entender o ecossistema, montar equipe, implantar governança e — simultaneamente — entregar resultados tangíveis de negócio. Cada trimestre tornou-se um conjunto de sprints com múltiplos projetos em paralelo.
+        </p>
+        <p>
+          O resultado ao fim de 2023: operação com saúde financeira sólida, KPIs em patamares de excelência, troca de fornecedor executada, nova adquirência ativa com protagonismo de vendas e um estudo de IA para ampliação inteligente de crédito.
+        </p>
+      </div>
+      <div class="context-timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">Q4<br><span style="font-size:10px">22</span></div>
+          <div class="timeline-content">
+            <h4>Início — Imersão e Diagnóstico</h4>
+            <p>Conhecer equipe, mapeamento de processos, estudo de oportunidades. NS Geral: 83% · CSAT: 65%.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">Q1<br><span style="font-size:10px">23</span></div>
+          <div class="timeline-content">
+            <h4>Início da Mudança</h4>
+            <p>40% dos processos revistos. Eficiência operacional refletida em números. Custo/mês: R$1MM.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">Q2<br><span style="font-size:10px">23</span></div>
+          <div class="timeline-content">
+            <h4>Troca de Fornecedor + Regulatórios</h4>
+            <p>100% processos regulatórios implantados. Nova adquirência ativa. Governança de acessos instaurada.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">Q3<br><span style="font-size:10px">23</span></div>
+          <div class="timeline-content">
+            <h4>Maturação — Excelência Operacional</h4>
+            <p>KPIs estabilizados. NS Geral: 90% · CSAT: 74%. +2k vendas POS via Inside Sales (+20% do total).</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot green">Q4<br><span style="font-size:10px">23</span></div>
+          <div class="timeline-content">
+            <h4>Patamar de Excelência + Phaseout</h4>
+            <p>NS: 92% · CSAT: 77%. Phaseout executado com saving. NPS Ouvidoria: 9,8. Custo/mês: R$680k.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section class="projects-section" id="projetos">
+  <div class="section-inner">
+    <div class="section-tag">Portfólio de Projetos</div>
+    <h2 class="section-title">8 projetos entregues em paralelo</h2>
+    <p class="section-desc">Cada projeto foi gerenciado com metodologia estruturada, backlog priorizado por RICE, cerimônias ágeis e entregáveis mensuráveis.</p>
+
+    <div class="projects-grid">
+
+      <!-- P1 -->
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <span class="project-number">P·01</span>
+          <div class="project-icon" style="background:#E3F2FD;">🤖</div>
+        </div>
+        <div class="project-body">
+          <h3>Automação de Experiências — Tasks & Integração CRM</h3>
+          <p>
+            Mapeamento e automação dos fluxos de tarefas operacionais integrados ao CRM. Redução de erros manuais, aumento de produtividade dos agentes e ganho de visibilidade para gestão em tempo real.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">↑ Eficiência operacional</span>
+            <span class="kpi-badge">CRM integrado</span>
+            <span class="kpi-badge">Automação de tasks</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: CX Automation · Q1/Q2 2023</div>
+      </div>
+
+      <!-- P2 -->
+      <div class="project-card fade-up" style="transition-delay:.05s">
+        <div class="project-header">
+          <span class="project-number">P·02</span>
+          <div class="project-icon" style="background:#E8FBF3;">📊</div>
+        </div>
+        <div class="project-body">
+          <h3>Reversão de NPS e CSAT — Predição de NPS com IA</h3>
+          <p>
+            Desenvolvimento de modelo preditivo de NPS para antecipar insatisfação dos clientes. Redesenho da régua de CX, estruturação da ouvidoria e implantação de pesquisa de satisfação com ciclos de melhoria contínua.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">+15pp NS em CRC</span>
+            <span class="kpi-badge green">+9pp CSAT</span>
+            <span class="kpi-badge">NPS 9,8</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: CX Intelligence · Q1 2023</div>
+      </div>
+
+      <!-- P3 -->
+      <div class="project-card fade-up" style="transition-delay:.1s">
+        <div class="project-header">
+          <span class="project-number">P·03</span>
+          <div class="project-icon" style="background:#FFF8E1;">🔄</div>
+        </div>
+        <div class="project-body">
+          <h3>Troca de Fornecedor de Call Center</h3>
+          <p>
+            Migração de 100% da operação de Call Center para novo fornecedor com maior sinergia ao ecossistema BEES. Gestão do RFP, onboarding, transferência de conhecimento, curva de implantação controlada e recuperação de KPIs em tempo recorde.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">100% migrado</span>
+            <span class="kpi-badge green">+R$6MM saving</span>
+            <span class="kpi-badge amber">KPIs recuperados</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: Vendor Management · Q1/Q2 2023</div>
+      </div>
+
+      <!-- P4 -->
+      <div class="project-card fade-up" style="transition-delay:.15s">
+        <div class="project-header">
+          <span class="project-number">P·04</span>
+          <div class="project-icon" style="background:#FCE4EC;">⚖️</div>
+        </div>
+        <div class="project-body">
+          <h3>Implantação de Canais Regulatórios</h3>
+          <p>
+            Estruturação e implantação completa dos canais regulatórios do Banco Central: Ouvidoria, SAC e demais obrigações. Terceirização estratégica da ouvidoria regulatória gerando eficiência e saving para a Cia. 100% dos processos desenvolvidos em Q2 2023.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">100% processos</span>
+            <span class="kpi-badge">BCB Compliance</span>
+            <span class="kpi-badge green">Saving gerado</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: Compliance & Regulatório · Q2 2023</div>
+      </div>
+
+      <!-- P5 -->
+      <div class="project-card fade-up" style="transition-delay:.2s">
+        <div class="project-header">
+          <span class="project-number">P·05</span>
+          <div class="project-icon" style="background:#E8F5E9;">💳</div>
+        </div>
+        <div class="project-body">
+          <h3>Nova Adquirência — Implantação Getnet</h3>
+          <p>
+            Liderança do processo de implantação da nova adquirência com a Getnet. Integração técnica, capacitação de equipe de Inside Sales e criação de fluxo de vendas de POS. Protagonismo nas vendas da parceria resultou em +2.000 terminais POS via IS, representando +20% do total.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">+2k POS via IS</span>
+            <span class="kpi-badge green">+20% do total</span>
+            <span class="kpi-badge">R$8,8BI faturamento</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: Nova Adquirência · Q2/Q3 2023</div>
+      </div>
+
+      <!-- P6 -->
+      <div class="project-card fade-up" style="transition-delay:.25s">
+        <div class="project-header">
+          <span class="project-number">P·06</span>
+          <div class="project-icon" style="background:#EDE7F6;">⭐</div>
+        </div>
+        <div class="project-body">
+          <h3>Melhoria de Imagem — Reclame Aqui e Mídias</h3>
+          <p>
+            Projeto focado em recuperação da reputação digital da marca no RA e demais mídias. Estratégia de resposta, gestão de crise, monitoramento de sentimento e ações proativas de relacionamento. Indicadores de reputação elevados a patamares de excelência.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">+8pp no RA</span>
+            <span class="kpi-badge green">90%+ mantém negócios</span>
+            <span class="kpi-badge">95% solução</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: Brand & Reputação · Q2/Q3 2023</div>
+      </div>
+
+      <!-- P7 -->
+      <div class="project-card fade-up" style="transition-delay:.3s">
+        <div class="project-header">
+          <span class="project-number">P·07</span>
+          <div class="project-icon" style="background:#FBE9E7;">🔀</div>
+        </div>
+        <div class="project-body">
+          <h3>Phaseout da Adquirência Antiga</h3>
+          <p>
+            Gestão do processo completo de descontinuação da adquirência anterior com excelência operacional. Controle de migração de carteiras, comunicação com clientes, redução de atrito e garantia de saúde financeira durante a transição. Custo mensal reduzido de R$1MM para R$680k.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge green">R$1MM → R$680k/mês</span>
+            <span class="kpi-badge">Zero downtime</span>
+            <span class="kpi-badge green">NS: 92%</span>
+          </div>
+        </div>
+        <div class="project-footer">🏷️ Épico: Phaseout Adquirência · Q3/Q4 2023</div>
+      </div>
+
+      <!-- P8 placeholder card pointing to featured section -->
+      <div class="project-card fade-up" style="transition-delay:.35s; background: linear-gradient(135deg, #0A1628 0%, #0D3B8E 100%); border-color: transparent;">
+        <div class="project-header">
+          <span class="project-number" style="background:rgba(255,255,255,0.15); color:#60BDFF">P·08</span>
+          <div class="project-icon" style="background:rgba(0,196,125,0.2);">🧠</div>
+        </div>
+        <div class="project-body">
+          <h3 style="color:#fff">Teste A/B — Definição de Público para Ampliação de Crédito</h3>
+          <p style="color:rgba(255,255,255,0.6)">
+            Estudo data-driven com Python, regressão OLS e teste A/B para definir o público ideal para liberação e ampliação de limite de crédito. +21,65% de incremento no ticket médio com apenas 1,05% de inadimplência.
+          </p>
+          <div class="project-kpis">
+            <span class="kpi-badge" style="background:rgba(0,196,125,.15); border-color:rgba(0,196,125,.3); color:var(--asaas-green);">+21,65% ticket médio</span>
+            <span class="kpi-badge" style="background:rgba(96,189,255,.1); border-color:rgba(96,189,255,.2); color:#60BDFF;">1,05% inadimplência</span>
+          </div>
+        </div>
+        <div class="project-footer" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); color:rgba(255,255,255,0.4);">
+          🏷️ Épico: Data-Driven Credit · Q3/Q4 2023 · <a href="#credito" style="color:#60BDFF; text-decoration:none;">Ver estudo completo ↓</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED: PROJETO 8 - CRÉDITO AB -->
+<section class="featured-section" id="credito">
+  <div class="featured-inner section-inner">
+    <div class="section-tag">Destaque Técnico · P·08</div>
+    <h2 class="section-title">Teste A/B com Machine Learning para Crédito</h2>
+    <p class="section-desc">Estudo desenvolvido em Python com dados reais da operação: segmentação de público, regressão OLS e simulação de cenários para definir a faixa ideal de ampliação de crédito.</p>
+
+    <div class="featured-grid">
+      <div>
+        <div class="study-card" style="margin-bottom:20px">
+          <h4>📦 Dados Analisados</h4>
+          <div class="study-list">
+            <ul class="study-list">
+              <li>57.410 registros de faturamento off-trade (PDVs)</li>
+              <li>143.574 respostas de NPS segmentadas por área</li>
+              <li>55 períodos de variáveis macroeconômicas externas</li>
+              <li>Variáveis: prazo utilizado, taxa ADF, faturamento, geo, UNB</li>
+            </ul>
+          </div>
+        </div>
+        <div class="study-card">
+          <h4>🎯 Hipótese Central</h4>
+          <p style="color:rgba(255,255,255,0.7); font-size:14px; line-height:1.7; margin-bottom:16px">
+            Clientes no quartil superior de faturamento (Q1 interno — top 25%) têm elasticidade de compra latente. Ampliar o prazo de crédito de 4,94 para 6,22 dias neste grupo específico geraria incremento no ticket médio sem aumentar inadimplência de forma significativa.
+          </p>
+          <div class="study-divider"></div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+            <div>
+              <div class="study-stat">
+                <span class="number">+21,65%</span>
+              </div>
+              <span class="desc" style="color:rgba(255,255,255,0.5); font-size:12px">Ticket médio simulado</span>
+            </div>
+            <div>
+              <div class="study-stat">
+                <span class="number">1,05%</span>
+              </div>
+              <span class="desc" style="color:rgba(255,255,255,0.5); font-size:12px">Incidência de inadimplência</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:var(--font-head); font-size:13px; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:.6px; margin-bottom:20px">📐 Metodologia</h4>
+        <div class="method-steps">
+          <div class="method-step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h5>ETL e Qualidade dos Dados</h5>
+              <p>Normalização das tabelas fato de Off-trade, NPS e variáveis externas. Tratamento de nulos, tipos e outliers com Pandas.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h5>Segmentação e Clusterização</h5>
+              <p>Quartilização por faturamento mensal. Identificação do Q1 interno (top 25%) como grupo de maior potencial de resposta ao crédito.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h5>Regressão OLS — Statsmodels</h5>
+              <p>Modelagem da relação entre prazo de crédito e faturamento mensal. Intercepto global: R$806k. Estimativa ponderada por subgrupo.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <h5>Simulação de Cenário A/B</h5>
+              <p>Prazo atual: 4,94 dias → Prazo simulado: 6,22 dias. Faturamento médio: R$36.405 → R$44.286 por PDV no grupo teste.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-num">5</div>
+            <div class="step-text">
+              <h5>Validação de Inadimplência</h5>
+              <p>Cruzamento com histórico de compras, taxa ADF e geo para estimar risco. Resultado: 1,05% de incidência — dentro do apetite ao risco.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-num">6</div>
+            <div class="step-text">
+              <h5>Recomendação ao Negócio</h5>
+              <p>Definição do público-piloto para liberação de crédito com critérios objetivos. Entrega de deck com análise e notebook documentado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONSOLIDADOS -->
+<section class="results-section" id="resultados">
+  <div class="section-inner">
+    <div class="section-tag">Resultados Consolidados</div>
+    <h2 class="section-title">Números que falam por si</h2>
+    <p class="section-desc">Indicadores do ciclo completo de gestão, de novembro/2022 a dezembro/2023.</p>
+
+    <div class="results-grid">
+      <div class="result-card fade-up">
+        <div class="value green">+R$6MM</div>
+        <div class="label">Saving com eficiência operacional (PA)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.1s">
+        <div class="value">+15pp</div>
+        <div class="label">Aumento de NS em CRC após 3 meses implantado</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.2s">
+        <div class="value">+9pp</div>
+        <div class="label">Aumento de CSAT operacional no período</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.3s">
+        <div class="value green">9,8</div>
+        <div class="label">NPS Ouvidoria — indicadores de reputação em excelência</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.4s">
+        <div class="value">92%</div>
+        <div class="label">NS Geral ao final de Q4/2023 (vs 83% na chegada)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.5s">
+        <div class="value">77%</div>
+        <div class="label">CSAT Geral Q4/2023 (vs 65% no início da gestão)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.6s">
+        <div class="value green">+2k</div>
+        <div class="label">POS vendidos via Inside Sales (+20% do total BEES)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.7s">
+        <div class="value">R$8,8BI</div>
+        <div class="label">Faturamento na operação de vendas internas no período</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.8s">
+        <div class="value green">+21,65%</div>
+        <div class="label">Incremento simulado no ticket médio (Projeto Crédito A/B)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:.9s">
+        <div class="value">1,05%</div>
+        <div class="label">Inadimplência no público-alvo de ampliação de crédito</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:1s">
+        <div class="value">R$680k</div>
+        <div class="label">Custo/mês ao fim vs R$1MM no início (redução de 32%)</div>
+      </div>
+      <div class="result-card fade-up" style="transition-delay:1.1s">
+        <div class="value green">+8pp</div>
+        <div class="label">Melhoria no Reclame Aqui (RA) com estratégia de reputação</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPOSITÓRIO / LINKS -->
+<section class="repo-section" id="repositorio">
+  <div class="section-inner">
+    <div class="section-tag">Organização do Projeto</div>
+    <h2 class="section-title">Repositório, Kanban e Ferramentas</h2>
+    <p class="section-desc">Todo o case organizado com as melhores práticas de gestão de projetos: repositório versionado, board Kanban e priorização científica por RICE.</p>
+
+    <div class="repo-grid">
+      <a href="https://github.com/Jesse-DataDriven/Entrega-AsaaS" target="_blank" class="repo-card">
+        <div class="repo-icon blue">📁</div>
+        <h4>Repositório GitHub</h4>
+        <p>Todo o material do case organizado: notebooks Python, análises, documentação e entregáveis por projeto. Estrutura de pastas refletindo os 8 épicos.</p>
+        <span class="repo-link-text">Acessar no GitHub</span>
+      </a>
+      <a href="https://github.com/users/Jesse-DataDriven/projects/16" target="_blank" class="repo-card">
+        <div class="repo-icon green">📋</div>
+        <h4>Projeto Kanban</h4>
+        <p>Board de gestão das entregas com épicos, tasks e status. Visibilidade completa do backlog e do avanço por projeto, com vínculo direto ao repositório.</p>
+        <span class="repo-link-text">Abrir Board Kanban</span>
+      </a>
+      <a href="https://calcrice.netlify.app/" target="_blank" class="repo-card">
+        <div class="repo-icon amber">📐</div>
+        <h4>RICE Score — Priorização</h4>
+        <p>Ferramenta de priorização científica do backlog usando o framework RICE (Reach · Impact · Confidence · Effort). Decisões de produto orientadas por dados.</p>
+        <span class="repo-link-text">Acessar Calculadora</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KANBAN SUGESTÕES DE TASKS -->
+<section class="kanban-section" id="kanban">
+  <div class="section-inner">
+    <div class="section-tag">Sugestão de Tasks · Kanban</div>
+    <h2 class="section-title">Cards sugeridos para o Board</h2>
+    <p class="section-desc">Tasks prontas para criar no Kanban — épicos, desenvolvimento deste site e atividades de suporte à candidatura.</p>
+
+    <div class="kanban-board">
+
+      <!-- Backlog -->
+      <div class="kanban-column">
+        <div class="kanban-col-header">
+          <span class="kanban-col-title">📌 Backlog</span>
+          <span class="kanban-count">8</span>
+        </div>
+        <div class="kanban-tasks">
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Site Presentation</div>
+            <h5>Criar domínio customizado para o case (GitHub Pages ou Netlify)</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Crédito A/B</div>
+            <h5>Exportar notebook como HTML interativo para o repositório</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: Candidatura</div>
+            <h5>Preparar pitch de 5 minutos com os highlights do case</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Site Presentation</div>
+            <h5>Adicionar versão mobile responsiva com teste em dispositivos reais</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Dados & Análise</div>
+            <h5>Documentar pipeline de dados do Projeto 8 com README detalhado</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: Candidatura</div>
+            <h5>Mapear cultura e valores Asaas e conectar à narrativa do case</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Portfolio</div>
+            <h5>Criar seção de "Sobre o PM" com perfil profissional e LinkedIn</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Métricas</div>
+            <h5>Montar dashboard interativo de KPIs do case com Chart.js</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Em Progresso -->
+      <div class="kanban-column">
+        <div class="kanban-col-header">
+          <span class="kanban-col-title">⚡ Em Progresso</span>
+          <span class="kanban-count">5</span>
+        </div>
+        <div class="kanban-tasks">
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Site Presentation</div>
+            <h5>Desenvolvimento do site HTML de apresentação do case ✅</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: Candidatura</div>
+            <h5>Revisão do storytelling dos 8 projetos para fluir como narrativa</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Repositório</div>
+            <h5>Estruturar pastas do GitHub com 1 pasta por projeto/épico</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Site Presentation</div>
+            <h5>Publicar site no GitHub Pages com URL limpa para envio à recrutadora</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: RICE</div>
+            <h5>Priorizar backlog do case no RICE Score e documentar decisões</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concluído -->
+      <div class="kanban-column">
+        <div class="kanban-col-header">
+          <span class="kanban-col-title">✅ Concluído</span>
+          <span class="kanban-count">6</span>
+        </div>
+        <div class="kanban-tasks">
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Crédito A/B</div>
+            <h5>Estudo Python completo — segmentação, OLS e simulação A/B</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Organização</div>
+            <h5>Criação do repositório GitHub Jesse-DataDriven/Entrega-AsaaS</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep1">Épico: Organização</div>
+            <h5>Configuração do board Kanban no GitHub Projects (#16)</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: Ferramentas</div>
+            <h5>Deploy da calculadora RICE em calcrice.netlify.app</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep2">Épico: Case BEES</div>
+            <h5>Consolidação dos KPIs históricos no PPT de referência</h5>
+          </div>
+          <div class="kanban-task">
+            <div class="task-epic ep3">Épico: Candidatura</div>
+            <h5>Levantamento da vaga e alinhamento do case ao perfil Asaas</h5>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Jessé Silva · PM Expert</div>
+  <p style="margin-bottom:12px">Case BEES Bank CXC · Fintech B2B · 2022–2023</p>
+  <p>
+    <a href="https://github.com/Jesse-DataDriven/Entrega-AsaaS" target="_blank">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://github.com/users/Jesse-DataDriven/projects/16" target="_blank">Kanban</a> &nbsp;·&nbsp;
+    <a href="https://calcrice.netlify.app/" target="_blank">RICE Score</a> &nbsp;·&nbsp;
+    <a href="https://asaas.gupy.io/jobs/10880439" target="_blank">Vaga Asaas</a>
+  </p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
